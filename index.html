@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="bg"></div>
+    <div class="grain"></div>
+
+    <!-- Glowing orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- Petal canvas (behind card) -->
+    <canvas id="petalCanvas"></canvas>
+    <!-- Petal canvas (in front of card) -->
+    <canvas id="petalCanvasFront"></canvas>
+    <div class="scene loading-scene active" id="scene1">
+        <!-- Corner SVG decorations -->
+        <svg class="corner corner-tl" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0 Q70 0 70 70 Q70 0 140 0" stroke="#e8a0c0" stroke-width="1" fill="none"/>
+            <path d="M0 30 Q40 30 40 70" stroke="#f0c0d8" stroke-width="0.7" fill="none"/>
+            <circle cx="8" cy="8" r="3" fill="#f0a6c0"/>
+            <circle cx="24" cy="5" r="2" fill="#fbbdd4"/>
+            <circle cx="5" cy="24" r="1.5" fill="#f9c4d8"/>
+        </svg>
+        <svg class="corner corner-br" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0 Q70 0 70 70 Q70 0 140 0" stroke="#e8a0c0" stroke-width="1" fill="none"/>
+            <path d="M0 30 Q40 30 40 70" stroke="#f0c0d8" stroke-width="0.7" fill="none"/>
+            <circle cx="8" cy="8" r="3" fill="#f0a6c0"/>
+            <circle cx="24" cy="5" r="2" fill="#fbbdd4"/>
+        </svg>
+            <svg class="corner corner-tr" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0 Q70 0 70 70 Q70 0 140 0" stroke="#e8a0c0" stroke-width="1" fill="none"/>
+            <circle cx="8" cy="8" r="2" fill="#fbbdd4"/>
+        </svg>
+            <svg class="corner corner-bl" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0 Q70 0 70 70 Q70 0 140 0" stroke="#e8a0c0" stroke-width="1" fill="none"/>
+            <circle cx="8" cy="8" r="2" fill="#fbbdd4"/>
+        </svg>
+
+        <!-- Floating hearts layer -->
+        <div class="hearts" id="hearts"></div>
+
+        <!-- Loading card -->
+        <div class="loading-card" id="card">
+            
+            <!-- Rotating flower -->
+            <div class="flower-wrap">
+                <svg class="flower-svg" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <radialGradient id="pg1" cx="50%" cy="30%" r="60%">
+                            <stop offset="0%" stop-color="#ffd6e8"/>
+                            <stop offset="100%" stop-color="#f472b6"/>
+                        </radialGradient>
+                        <radialGradient id="pg2" cx="50%" cy="30%" r="60%">
+                            <stop offset="0%" stop-color="#fce7f3"/>
+                            <stop offset="100%" stop-color="#ec4899"/>
+                        </radialGradient>
+                    </defs>
+                    <!-- 6 petals -->
+                    <g transform="translate(36,36)">
+                        <ellipse rx="7" ry="16" cy="-16" fill="url(#pg1)" opacity="0.9"/>
+                        <ellipse rx="7" ry="16" cy="-16" fill="url(#pg1)" opacity="0.9" transform="rotate(60)"/>
+                        <ellipse rx="7" ry="16" cy="-16" fill="url(#pg2)" opacity="0.85" transform="rotate(120)"/>
+                        <ellipse rx="7" ry="16" cy="-16" fill="url(#pg1)" opacity="0.9" transform="rotate(180)"/>
+                        <ellipse rx="7" ry="16" cy="-16" fill="url(#pg2)" opacity="0.85" transform="rotate(240)"/>
+                        <ellipse rx="7" ry="16" cy="-16" fill="url(#pg1)" opacity="0.9" transform="rotate(300)"/>
+                    </g>
+                </svg>
+                <div class="flower-core"></div>
+            </div>
+
+            <div style="text-align:center; animation: fadeUp .9s .15s ease both;">
+                <div class="title"><em>Có đôi lời</em><br>muốn gửi đến em</div>
+            </div>
+            <div class="subtitle">Chờ một tí nha</div>
+        
+            <div class="progress-wrap">
+                <div class="progress-track">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+                <div class="progress-pct" id="pctText">0%</div>
+            </div>
+            <div class="dotsLoading">
+                <div class="dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <button class="ready">Sẵn sàng</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="scene letter-scene" id="scene2">
+        <div class="letter-container">
+            <div class="phongBi">
+                <div class="thu">
+                    <div class="corner corner-tl"></div>
+                    <div class="corner corner-tr"></div>
+                    <div class="corner corner-bl"></div>
+                    <div class="corner corner-br"></div>
+                    <div class="thu-content"></div>
+                    <div class="thu-button">
+                        <button class="card-nav" onclick="nextScene()">Tiếp theo →</button>
+                    </div>
+                </div>
+                <div class="phai"></div>
+                <div class="trai"></div>
+                <div class="duoi"></div>
+                <div class="nap"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scene 3 -->
+    <div class="scene yesno-scene" id="scene3">
+        <div class="yesno-card">
+            <div class="heart-wrap">
+                <svg class="heart-svg" viewBox="0 0 100 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#f0a6c0"/>
+                        <stop offset="100%" stop-color="#d96b9a"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M50 82 C50 82 8 54 8 28 C8 14 18 6 28 6 C36 6 44 11 50 18 C56 11 64 6 72 6 C82 6 92 14 92 28 C92 54 50 82 50 82Z" fill="url(#hg)" filter="drop-shadow(0 4px 10px rgba(217,107,154,0.4))"/>
+                    <path d="M50 30 C50 30 36 20 36 30 C36 36 50 46 50 46 C50 46 64 36 64 30 C64 20 50 30 50 30Z" fill="rgba(255,255,255,0.25)"/>
+                </svg>
+            </div>
+            
+            <p class="subtitle">✦ anh chỉ muốn nói với em rằng là ✦</p>
+            <h1 class="title" id="main-title">Em có muốn làm<br>hậu phương của anh không?</h1>
+            
+            <div class="divider"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
+            
+            <p class="message" id="main-msg">Đồng ý làm người yêu anh nha? <em>♡</em></p>
+            
+            <div class="btn-arena" id="btn-arena">
+                <button class="btn btn-yes" id="btn-yes" onclick="handleYes()">💗 Có, em muốn!</button>
+                <button class="btn btn-no" id="btn-no" onclick="handleNo()">Không...</button>
+            </div>
+        </div>
+</div>
+
+<!-- Scene 4 -->
+<div class="scene love-scene" id="scene4">
+    <div class="love-card">
+        <span class="big-heart">💕</span>
+        <p class="scene4-title">Tuyệt vời! </p>
+        <div class="divider"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
+        <p class="scene4-msg">
+            Từ hôm nay, anh sẽ luôn bên cạnh em,<br>
+            tuy anh không phải là một người hoàn hảo,<br>
+            nhưng anh hứa sẽ cố gắng hết mình vì em.<br><br>
+            Cảm ơn em đã tin tưởng anh nhé<br>
+            <em>Và giờ hãy nhìn lại phía bạn trai em nha. 💗</em>
+        </p>
+    </div>
+</div>
+</body>
+<script type="module" src="script.js"></script>
+</html>
