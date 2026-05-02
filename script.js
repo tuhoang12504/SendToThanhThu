@@ -202,7 +202,6 @@ const audio = document.getElementById('audio');
 let i = 0;
 const interval = setInterval(() => {
 	if (i > 100) {
-		audio.play();
 		setInterval(() => {
 			dots.style.display = 'none'
 			readyBtn.classList.add('toggle')
@@ -217,6 +216,7 @@ const interval = setInterval(() => {
 }, 70)
 readyBtn.addEventListener('click', function() {
 	nextScene()
+	audio.play();
 })
 
 // Scene 2 =============================================================================================================
