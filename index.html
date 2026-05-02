@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Gửi đến người nào đó...</title>
+    <title>Gửi đến một ai đó...</title>
 </head>
 <body>
     <div class="bg"></div>
@@ -34,11 +34,11 @@
             <circle cx="8" cy="8" r="3" fill="#f0a6c0"/>
             <circle cx="24" cy="5" r="2" fill="#fbbdd4"/>
         </svg>
-            <svg class="corner corner-tr" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="corner corner-tr" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 0 Q70 0 70 70 Q70 0 140 0" stroke="#e8a0c0" stroke-width="1" fill="none"/>
             <circle cx="8" cy="8" r="2" fill="#fbbdd4"/>
         </svg>
-            <svg class="corner corner-bl" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="corner corner-bl" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 0 Q70 0 70 70 Q70 0 140 0" stroke="#e8a0c0" stroke-width="1" fill="none"/>
             <circle cx="8" cy="8" r="2" fill="#fbbdd4"/>
         </svg>
@@ -48,7 +48,6 @@
 
         <!-- Loading card -->
         <div class="loading-card" id="card">
-            
             <!-- Rotating flower -->
             <div class="flower-wrap">
                 <svg class="flower-svg" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
@@ -75,15 +74,14 @@
                 <div class="flower-core"></div>
             </div>
 
-            <div style="text-align:center; animation: fadeUp .9s .15s ease both;">
+            <div style="text-align: center; animation: fadeUp 0.9s 0.15s ease both;">
                 <div class="title"><em>Có đôi lời</em><br>muốn gửi đến em</div>
             </div>
             <div class="subtitle">Chờ một tí nha</div>
-        
             <div class="progress-wrap">
                 <div class="progress-track">
-                <div class="progress-fill" id="progressFill"></div>
-            </div>
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
                 <div class="progress-pct" id="pctText">0%</div>
             </div>
             <div class="dotsLoading">
@@ -107,7 +105,7 @@
                     <div class="corner corner-br"></div>
                     <div class="thu-content"></div>
                     <div class="thu-button">
-                        <button class="card-nav" onclick="nextScene()">Tiếp theo →</button>
+                        <button class="card-nav" onclick="nextScene()">Tiếp theo</button>
                     </div>
                 </div>
                 <div class="phai"></div>
@@ -135,11 +133,11 @@
             </div>
             
             <p class="subtitle">✦ anh chỉ muốn nói với em rằng là ✦</p>
-            <h1 class="title" id="main-title">Em có muốn làm<br>hậu phương của anh không?</h1>
+            <h1 class="title" id="main-title">Em có đồng ý<br>làm người yêu anh không?</h1>
             
             <div class="divider"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
             
-            <p class="message" id="main-msg">Đồng ý làm người yêu anh nha? <em>♡</em></p>
+            <p class="message" id="main-msg">Làm hậu phương của anh nhé? <em>♡</em></p>
             
             <div class="btn-arena" id="btn-arena">
                 <button class="btn btn-yes" id="btn-yes" onclick="handleYes()">💗 Có, em muốn!</button>
@@ -163,6 +161,7 @@
         </p>
     </div>
 </div>
+<audio src="khongthoigian.mp3" id="audio"></audio>
 </body>
 <script type="module" src="script.js"></script>
 </html>
